@@ -1,0 +1,21 @@
+{
+  "name": "ai-focus-mode",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build -- --watch",
+    "prebuild": "mkdir -p public/wasm && cp node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.asyncify.{mjs,wasm} public/wasm/",
+    "build": "vite build && vite build -c vite.config.content.ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.2.0",
+    "webextension-polyfill": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/webextension-polyfill": "^0.12.5",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  }
+}

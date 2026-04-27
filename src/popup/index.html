@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Focus Mode</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-icon">&#x1f9e0;</div>
+    <div>
+      <h1>AI Focus Mode</h1>
+      <p>Hide distractions with on-device AI</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <label for="topic">Focus Topic</label>
+    <input
+      type="text"
+      id="topic"
+      class="topic-input"
+      placeholder="e.g. React performance optimization"
+      spellcheck="false"
+    >
+  </div>
+
+  <div class="section">
+    <label>Sensitivity</label>
+    <div class="sensitivity-wrap">
+      <input type="range" id="sensitivity" class="sensitivity-slider" min="10" max="90" value="50" step="5">
+      <span id="sensitivity-value" class="sensitivity-value">50%</span>
+    </div>
+  </div>
+
+  <div class="toggle-row">
+    <span class="toggle-label">Focus Mode</span>
+    <label class="toggle">
+      <input type="checkbox" id="enabled">
+      <span class="toggle-track"></span>
+      <span class="toggle-thumb"></span>
+    </label>
+  </div>
+
+  <div class="status-bar">
+    <span id="status-dot" class="status-dot"></span>
+    <span id="status-text">Idle — enter a topic and enable</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div id="stat-analyzed" class="stat-number">0</div>
+      <div class="stat-label">Analyzed</div>
+    </div>
+    <div class="stat-card">
+      <div id="stat-hidden" class="stat-number">0</div>
+      <div class="stat-label">Hidden</div>
+    </div>
+    <div class="stat-card">
+      <div id="stat-kept" class="stat-number">0</div>
+      <div class="stat-label">Kept</div>
+    </div>
+  </div>
+
+  <button id="btn-reveal" class="btn-reveal">Temporarily reveal all hidden elements</button>
+
+  <!-- Collapsible model downloads section -->
+  <div class="downloads-section" id="downloads-section">
+    <button class="downloads-toggle" id="downloads-toggle" type="button">
+      <span class="downloads-toggle-label">
+        <span class="downloads-toggle-icon" id="downloads-chevron">&#x25B6;</span>
+        Model Downloads
+      </span>
+      <span class="downloads-badge" id="downloads-badge"></span>
+    </button>
+    <div class="downloads-body" id="downloads-body">
+      <div class="downloads-list" id="downloads-list">
+        <div class="downloads-empty">No downloads yet — enable focus mode to start.</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

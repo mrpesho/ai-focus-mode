@@ -1,0 +1,40 @@
+/* Elements hidden by AI Focus Mode */
+[data-focus-hidden="true"] {
+  opacity: 0.08 !important;
+  filter: grayscale(1) blur(2px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.4s ease, filter 0.4s ease !important;
+  position: relative !important;
+}
+
+[data-focus-hidden="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+/* Reveal on hover for quick peek */
+[data-focus-hidden="true"]:hover {
+  opacity: 0.5 !important;
+  filter: grayscale(0.5) blur(0) !important;
+}
+
+/* Temporary reveal-all mode */
+[data-focus-reveal] [data-focus-hidden="true"] {
+  opacity: 1 !important;
+  filter: none !important;
+  pointer-events: auto !important;
+}
+
+/* Elements marked as relevant */
+[data-focus-kept="true"] {
+  transition: outline 0.3s ease !important;
+}
+
+/* Scanning indicator */
+[data-focus-scanning="true"] {
+  outline: 2px dashed rgba(99, 102, 241, 0.3) !important;
+  outline-offset: 2px !important;
+}
